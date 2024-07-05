@@ -52,7 +52,7 @@ function Navbar() {
             <button type="button" className="btn btn-outline-light me-2">
               Login
             </button>
-            <button type="button" className="btn btn-outline-success ">
+            <button type="button" className="btn btn-success ">
               Sign-up
             </button>
           </div>
