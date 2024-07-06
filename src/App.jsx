@@ -1,6 +1,7 @@
 import "./App.css";
-import Footer from "./components/Footer";
+import CreatePost from "./components/CreatePost";
 import Navbar from "./components/Navbar";
+import PostList from "./components/PostList";
 import Sidebar from "./components/Sidebar";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
         <Sidebar></Sidebar>
         <div className="content">
           <Navbar></Navbar>
-          {/* <Footer></Footer> */}
+          <CreatePost />
+          <PostList />
         </div>
       </div>
     </>
