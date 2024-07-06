@@ -1,3 +1,5 @@
+import { Button } from "antd";
+
 function Navbar() {
 
   return (
@@ -49,12 +51,10 @@ function Navbar() {
           </form>
 
           <div className="text-end">
-            <button type="button" className="btn btn-outline-light me-2">
-              Login
-            </button>
-            <button type="button" className="btn btn-success ">
+            <Button className="mx-1 my-1 fw-semibold">Login</Button>
+            <Button type="primary" className="mx-1 my-1 fw-semibold">
               Sign-up
-            </button>
+            </Button>
           </div>
         </div>
       </div>
