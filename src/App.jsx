@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import CreatePost from "./components/CreatePost";
 import Navbar from "./components/Navbar";
@@ -5,14 +6,18 @@ import PostList from "./components/PostList";
 import Sidebar from "./components/Sidebar";
 
 function App() {
+  const [selectedTab, setSelectedTab] = useState("Home");
+
   return (
     <>
       <div className="main-container d-flex">
-        <Sidebar></Sidebar>
+        <Sidebar
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        ></Sidebar>
         <div className="content">
           <Navbar></Navbar>
-          <CreatePost />
-          <PostList />
+          {selectedTab === "Home" ? <PostList /> : <CreatePost />}
         </div>
       </div>
     </>
