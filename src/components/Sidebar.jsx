@@ -18,7 +18,7 @@ function Sidebar({ selectedTab, setSelectedTab }) {
         <span className="fs-4">Sidebar</span>
       </a>
       <hr />
-      <ul className="nav nav-pills flex-column mb-auto">
+      <ul className="nav nav-pills flex-column mb-auto sticky-top">
         <li className="nav-item" onClick={() => handleOnClick("Home")}>
           <a
             href="#"

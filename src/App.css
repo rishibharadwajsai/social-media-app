@@ -10,3 +10,11 @@
 .sb-footer {
     width: 100%;
 }
+
+.post-card{
+    max-width: 30rem;
+}
+
+.create-post{
+    width: 80%;
+}

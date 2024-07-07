@@ -7,7 +7,13 @@ export const PostList = createContext({
 });
 
 const postListReducer = (currPostList, action) => {
-  return currPostList;
+  let newPostList = currPostList;
+  if (action.type === "DELETE_POST") {
+    newPostList = currPostList.filter(
+      (post) => post.id !== action.payload.postId
+    );
+  }
+  return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
@@ -18,7 +24,13 @@ const PostListProvider = ({ children }) => {
 
   const addPost = () => {};
 
-  const deletePost = () => {};
+  const deletePost = (postId) => {
+    // console.log(`delete post called for ${postId}`);
+    dispatchPostList({
+      type: "DELETE_POST",
+      payload: { postId },
+    });
+  };
 
   return (
     <PostList.Provider
@@ -36,8 +48,8 @@ const PostListProvider = ({ children }) => {
 const DEFAULT_POST_LIST = [
   {
     id: "1",
-    title: "Going to karnataka!!!!",
-    body: "Enjoying in summer vacation",
+    title: "Lorem, ipsum dolor.",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi totam nam veritatis vero culpa laboriosam ducimus, nostrum aut omnis ea.",
     reactions: 2,
     userId: "user-23",
     tags: ["summer", "vacation", "enjoying"],
@@ -45,12 +57,29 @@ const DEFAULT_POST_LIST = [
 
   {
     id: "2",
-    title: "Buy milk",
-    body: "going to buy milk",
-    reactions: 2,
+    title: "Lorem ipsum dolor sit.",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem fuga esse assumenda. Dignissimos dolorum, commodi porro odio, iste tenetur nisi ad veritatis ratione asperiores obcaecati temporibus earum dicta praesentium? ",
+    reactions: 10,
     userId: "user-23",
     tags: ["milk", "buying"],
   },
+  {
+    id: "3",
+    title: "Lorem ipsum dolor sit.",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem fuga esse assumenda. Dignissimos dolorum, commodi porro odio, iste tenetur nisi ad veritatis ratione asperiores obcaecati temporibus earum dicta praesentium? ",
+    reactions: 100,
+    userId: "user-23",
+    tags: ["milk", "buying"],
+  },
+  {
+    id: "4",
+    title: "Lorem ipsum dolor sit.",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem fuga esse assumenda. Dignissimos dolorum, commodi porro odio, iste tenetur nisi ad veritatis ratione asperiores obcaecati temporibus earum dicta praesentium? ",
+    reactions: 0,
+    userId: "user-23",
+    tags: ["milk", "buying"],
+  },
+  
 ];
 
 export default PostListProvider;
