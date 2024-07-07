@@ -7,7 +7,7 @@ import Sidebar from "./components/Sidebar";
 import PostListProvider from "./store/Post-list-store";
 
 function App() {
-  const [selectedTab, setSelectedTab] = useState("Home");
+  const [selectedTab, setSelectedTab] = useState("Create Post");
 
   return (
     <>
