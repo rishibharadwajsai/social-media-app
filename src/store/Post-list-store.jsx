@@ -13,6 +13,9 @@ const postListReducer = (currPostList, action) => {
       (post) => post.id !== action.payload.postId
     );
   }
+  else if (action.type === "ADD_POST"){
+    newPostList = [action.payload, ...currPostList];
+  }
   return newPostList;
 };
 
@@ -22,10 +25,22 @@ const PostListProvider = ({ children }) => {
     DEFAULT_POST_LIST
   );
 
-  const addPost = () => {};
+  const addPost = (userId, postTitle, postBody, reactions, tags) => {
+    // console.log(`${userId} ${postTitle} ${postBody} ${reactions} ${tags}`)
+    dispatchPostList({
+      type: "ADD_POST",
+      payload: {
+        id: Date.now(),
+        title: postTitle,
+        body: postBody,
+        reactions: reactions,
+        userId: userId,
+        tags: tags,
+      }
+    })
+  };
 
   const deletePost = (postId) => {
-    // console.log(`delete post called for ${postId}`);
     dispatchPostList({
       type: "DELETE_POST",
       payload: { postId },
@@ -46,40 +61,22 @@ const PostListProvider = ({ children }) => {
 };
 
 const DEFAULT_POST_LIST = [
-  {
-    id: "1",
-    title: "Lorem, ipsum dolor.",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi totam nam veritatis vero culpa laboriosam ducimus, nostrum aut omnis ea.",
-    reactions: 2,
-    userId: "user-23",
-    tags: ["summer", "vacation", "enjoying"],
-  },
-
-  {
-    id: "2",
-    title: "Lorem ipsum dolor sit.",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem fuga esse assumenda. Dignissimos dolorum, commodi porro odio, iste tenetur nisi ad veritatis ratione asperiores obcaecati temporibus earum dicta praesentium? ",
-    reactions: 10,
-    userId: "user-23",
-    tags: ["milk", "buying"],
-  },
-  {
-    id: "3",
-    title: "Lorem ipsum dolor sit.",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem fuga esse assumenda. Dignissimos dolorum, commodi porro odio, iste tenetur nisi ad veritatis ratione asperiores obcaecati temporibus earum dicta praesentium? ",
-    reactions: 100,
-    userId: "user-23",
-    tags: ["milk", "buying"],
-  },
-  {
-    id: "4",
-    title: "Lorem ipsum dolor sit.",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem fuga esse assumenda. Dignissimos dolorum, commodi porro odio, iste tenetur nisi ad veritatis ratione asperiores obcaecati temporibus earum dicta praesentium? ",
-    reactions: 0,
-    userId: "user-23",
-    tags: ["milk", "buying"],
-  },
-  
+    {
+      "id": "1",
+      "title": "Exploring the Beaches of Bali",
+      "body": "Spent an incredible week exploring the pristine beaches of Bali. Crystal-clear waters, golden sands, and breathtaking sunsets every evening. Can't wait to go back!",
+      "reactions": 124,
+      "userId": "user-123",
+      "tags": ["Bali", "beach", "travel"]
+    },
+    {
+      "id": "2",
+      "title": "Hiking Adventures in the Swiss Alps",
+      "body": "Just returned from an exhilarating hiking trip in the Swiss Alps. The views from the top were absolutely stunning, with snow-capped peaks as far as the eye could see. Feeling accomplished!",
+      "reactions": 89,
+      "userId": "user-456",
+      "tags": ["Swiss Alps", "hiking", "adventure"]
+    },  
 ];
 
 export default PostListProvider;
