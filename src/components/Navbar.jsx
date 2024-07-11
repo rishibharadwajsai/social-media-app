@@ -3,7 +3,7 @@ import { Button } from "antd";
 function Navbar() {
 
   return (
-    <header className="p-3 text-bg-white sticky-top ">
+    <header className="p-3 text-bg-light sticky-top ">
       <div className="container border-bottom border-2 border-dark pb-3">
         <div className="d-flex flex-wrap align-items-center justify-content-sm-evenly justify-content-lg-end">
           <form id="search-form" className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
