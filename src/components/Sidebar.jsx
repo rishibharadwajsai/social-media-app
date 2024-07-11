@@ -1,3 +1,4 @@
+import "../App.css"
 function Sidebar({ selectedTab, setSelectedTab }) {
   const handleOnClick = (tabName) => {
     setSelectedTab(tabName);
@@ -5,7 +6,7 @@ function Sidebar({ selectedTab, setSelectedTab }) {
 
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 text-bg-light border-end border-dark"
+      className="d-flex main-container flex-column flex-shrink-0 p-3 text-bg-light border-end border-dark sticky-top"
       style={{ maxWidth: "280px" }}
     >
       <a
@@ -16,7 +17,7 @@ function Sidebar({ selectedTab, setSelectedTab }) {
         <span className="fs-4 mx-2">Menu</span>
       </a>
       <hr />
-      <ul className="nav nav-pills flex-column mb-auto sticky-top">
+      <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item" onClick={() => handleOnClick("Home")}>
         
           <a
