@@ -9,7 +9,7 @@ function CreatePost () {
     const userIdElement =  useRef();
     const postTitleElement =  useRef();
     const postBodyElement =  useRef();
-    const reactionsElement =  useRef();
+    const viewsElement =  useRef();
     const tagsElement =  useRef();
 
     const handleSubmit = (event) => {
@@ -17,16 +17,16 @@ function CreatePost () {
         const userId = userIdElement.current.value;
         const postTitle = postTitleElement.current.value;
         const postBody = postBodyElement.current.value;
-        const reactions = reactionsElement.current.value;
+        const views = viewsElement.current.value;
         const tags = tagsElement.current.value.split(" ");
 
         userIdElement.current.value = "";
         postTitleElement.current.value = "";
         postBodyElement.current.value = "";
-        reactionsElement.current.value = "";
+        viewsElement.current.value = "";
         tagsElement.current.value = "";
 
-        addPost(userId, postTitle, postBody, reactions, tags);
+        addPost(userId, postTitle, postBody, views, tags);
     };
 
     return (
@@ -44,8 +44,8 @@ function CreatePost () {
                 <textarea rows={4} ref={postBodyElement} type="text" className="form-control border border-secondary" id="body" placeholder="Tell us more about it" required/>
             </div>
             <div className="mb-3">
-                <label htmlFor="reactions" className="form-label fw-semibold">Number of reactions</label>
-                <input type="number" ref={reactionsElement} className="form-control border border-secondary" id="reactions" placeholder="How many people reacted to this" required/>
+                <label htmlFor="views" className="form-label fw-semibold">Number of views</label>
+                <input type="number" ref={viewsElement} className="form-control border border-secondary" id="views" placeholder="How many people viewed this" required/>
             </div>
             <div className="mb-3">
                 <label htmlFor="tags" className="form-label fw-semibold">Enter your hashtags</label>

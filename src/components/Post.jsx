@@ -23,7 +23,7 @@ function Post({ post }) {
           </span>
         ))}
         <div className="alert alert-success mt-2" role="alert">
-          This post got {post.reactions} reactions
+          This post got {post.views} views
         </div>
       </div>
     </div>
