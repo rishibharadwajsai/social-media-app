@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <PostListProvider>
-        <div className="main-container d-flex">
+        <div className=" d-flex">
           <Sidebar
             selectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
