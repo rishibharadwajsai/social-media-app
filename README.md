@@ -27,7 +27,7 @@ To run this application locally:
 1. Clone the repository:
    ```
    git clone https://github.com/rishibharadwajsai/social-media-app.git
-   cd react-social-media-app
+   cd social-media-app
    ```
 
 2. Install dependencies:
