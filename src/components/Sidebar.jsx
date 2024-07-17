@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import "../routes/App.css";
-function Sidebar({ selectedTab, setSelectedTab }) {
+function Sidebar(/*{ selectedTab, setSelectedTab }*/) {
   const handleOnClick = (tabName) => {
     setSelectedTab(tabName);
   };
@@ -23,12 +24,10 @@ function Sidebar({ selectedTab, setSelectedTab }) {
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item" onClick={() => handleOnClick("Home")}>
-          <a
-            href="#"
-            className={`nav-link text-dark ${
-              selectedTab === "Home" && "active text-white"
-            }`}
+        <li className="nav-item" /*onClick={() => handleOnClick("Home")}*/>
+          <Link
+            to="/"
+            className={`nav-link text-dark`}
             aria-current="page"
           >
             <img
@@ -39,14 +38,12 @@ function Sidebar({ selectedTab, setSelectedTab }) {
               height={20}
             />
             Home
-          </a>
+          </Link>
         </li>
-        <li onClick={() => handleOnClick("Create Post")}>
-          <a
-            href="#"
-            className={`nav-link text-dark ${
-              selectedTab === "Create Post" && "active text-white"
-            }`}
+        <li /*onClick={() => handleOnClick("Create Post")} */>
+          <Link
+            to="/createpost"
+            className={`nav-link text-dark`}
           >
             <img
               src="https://www.freeiconspng.com/thumbs/writing-icon/writing-icon-4.png"
@@ -55,7 +52,7 @@ function Sidebar({ selectedTab, setSelectedTab }) {
               width={20}
             />
             Create Post
-          </a>
+          </Link>
         </li>
         <li>
           <a href="#" className="nav-link text-dark">
