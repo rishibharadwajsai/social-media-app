@@ -1,4 +1,4 @@
-import "../App.css";
+import "../routes/App.css";
 function Sidebar({ selectedTab, setSelectedTab }) {
   const handleOnClick = (tabName) => {
     setSelectedTab(tabName);
