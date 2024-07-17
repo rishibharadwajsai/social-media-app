@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../App.css";
+import "../routes/App.css";
 import { MdDelete } from "react-icons/md";
 import { PostList } from "../store/Post-list-store";
 function Post({ post }) {
